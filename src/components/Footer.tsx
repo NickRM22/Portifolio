@@ -1,59 +1,57 @@
-import { ArrowUp, ContactRound, GitBranch } from 'lucide-react'
+import { ArrowUp } from 'lucide-react'
 import type { PortfolioData } from '../types'
+import { Icon } from './Icon'
 
 interface FooterProps {
   data: PortfolioData
 }
 
 export function Footer({ data }: FooterProps) {
-  const github = data.contact.methods.find((method) => method.icon === 'github')
-  const linkedin = data.contact.methods.find(
-    (method) => method.icon === 'linkedin',
-  )
-
   return (
-    <footer className="border-t border-[var(--border)] py-8">
-      <div className="container-shell flex flex-col gap-7 sm:flex-row sm:items-center sm:justify-between">
-        <div>
-          <p className="text-sm font-medium text-[var(--text-strong)]">
-            {data.footer.note}
-          </p>
-          <p className="mt-2 text-xs leading-5 text-[var(--text-subtle)]">
+    <footer className="border-t border-[var(--border)] bg-[var(--surface-soft)]">
+      <div className="container-shell">
+        <div className="flex flex-col gap-8 py-10 sm:flex-row sm:items-center sm:justify-between sm:py-12">
+          <div>
+            <a
+              className="text-lg font-semibold tracking-tight text-[var(--text-strong)] transition-colors hover:text-[var(--accent)]"
+              href="#inicio"
+            >
+              {data.personal.name}
+            </a>
+            <p className="mt-2 text-sm leading-6 text-[var(--text-muted)]">
+              {data.footer.note}
+            </p>
+          </div>
+
+          <nav aria-label="Contatos no rodapé" className="flex flex-wrap gap-x-6 gap-y-4">
+            {data.contact.methods.map((method) => (
+              <a
+                aria-label={method.ariaLabel}
+                className="inline-flex min-h-11 items-center gap-2 text-sm font-medium text-[var(--text-muted)] transition-colors hover:text-[var(--text-strong)]"
+                href={method.url}
+                key={method.label}
+                rel={method.external ? 'noopener noreferrer' : undefined}
+                target={method.external ? '_blank' : undefined}
+              >
+                <Icon name={method.icon} size={18} />
+                {method.label}
+              </a>
+            ))}
+          </nav>
+        </div>
+
+        <div className="flex flex-col gap-4 border-t border-[var(--border)] py-5 sm:flex-row sm:items-center sm:justify-between">
+          <p className="text-xs leading-6 text-[var(--text-subtle)]">
             {data.footer.copyrightSymbol} {data.footer.year}{' '}
             {data.footer.owner} {data.footer.rights}
           </p>
-        </div>
-
-        <div className="flex items-center gap-2">
-          {github && (
-            <a
-              aria-label={github.ariaLabel}
-              className="icon-button"
-              href={github.url}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <GitBranch aria-hidden="true" size={18} />
-            </a>
-          )}
-          {linkedin && (
-            <a
-              aria-label={linkedin.ariaLabel}
-              className="icon-button"
-              href={linkedin.url}
-              rel="noopener noreferrer"
-              target="_blank"
-            >
-              <ContactRound aria-hidden="true" size={18} />
-            </a>
-          )}
           <a
             aria-label={data.footer.backToTopAriaLabel}
-            className="button-secondary min-h-10 px-3 py-2 text-sm"
-            href="#top"
+            className="inline-flex min-h-11 items-center gap-2 self-start text-xs font-medium text-[var(--text-muted)] transition-colors hover:text-[var(--accent)] sm:self-auto"
+            href="#inicio"
           >
             {data.footer.backToTop}
-            <ArrowUp aria-hidden="true" size={16} />
+            <ArrowUp aria-hidden="true" size={14} />
           </a>
         </div>
       </div>

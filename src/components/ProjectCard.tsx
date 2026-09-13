@@ -1,5 +1,5 @@
 import { motion, useReducedMotion } from 'framer-motion'
-import { ArrowUpRight, GitBranch } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import type { Project } from '../types'
 import { Icon } from './Icon'
 
@@ -12,21 +12,20 @@ export function ProjectCard({ project }: ProjectCardProps) {
 
   return (
     <motion.article
-      className="project-card group"
-      transition={{ duration: 0.18, ease: 'easeOut' }}
-      whileHover={shouldReduceMotion ? undefined : { y: -4 }}
+      className="modern-card project-card group"
+      transition={{ type: 'spring', stiffness: 260, damping: 26, mass: 0.7 }}
+      whileHover={shouldReduceMotion ? undefined : { y: -3 }}
     >
-      <div aria-hidden="true" className="project-visual">
-        <span className="project-number">{project.number}</span>
-        <span className="project-icon">
-          <Icon name={project.icon} size={34} strokeWidth={1.45} />
-        </span>
-        <span className="project-line project-line-one" />
-        <span className="project-line project-line-two" />
-        <span className="project-dot" />
-      </div>
+      <img
+        alt={project.imageAlt}
+        className="project-image"
+        height={300}
+        loading="lazy"
+        src={`${import.meta.env.BASE_URL}${project.image}`}
+        width={560}
+      />
 
-      <div className="flex flex-1 flex-col p-6 sm:p-7">
+      <div className="flex flex-1 flex-col p-5 sm:p-6">
         <h3 className="text-xl font-semibold tracking-[-0.02em] text-[var(--text-strong)] sm:text-2xl">
           {project.name}
         </h3>
@@ -34,7 +33,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
           {project.description}
         </p>
 
-        <ul className="mt-6 flex flex-wrap gap-2">
+        <ul className="mt-4 flex flex-wrap gap-2">
           {project.technologies.map((technology) => (
             <li className="tech-badge" key={technology}>
               {technology}
@@ -43,7 +42,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
         </ul>
 
         {(project.repoUrl || project.demoUrl) && (
-          <div className="mt-7 flex flex-wrap gap-3 border-t border-[var(--border)] pt-5">
+          <div className="mt-5 flex flex-wrap gap-3 border-t border-[var(--border)] pt-4">
             {project.repoUrl && project.repoLabel && project.repoAriaLabel && (
               <a
                 aria-label={project.repoAriaLabel}
@@ -52,7 +51,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
                 rel="noopener noreferrer"
                 target="_blank"
               >
-                <GitBranch aria-hidden="true" size={17} />
+                <Icon name="github" size={17} />
                 {project.repoLabel}
                 <ArrowUpRight aria-hidden="true" size={16} />
               </a>

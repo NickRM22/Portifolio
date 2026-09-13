@@ -19,7 +19,7 @@ export function Experience({ data }: ExperienceProps) {
               <BriefcaseBusiness size={17} strokeWidth={1.8} />
             </div>
 
-            <article className="card-surface p-6 sm:p-8">
+            <article className="modern-card card-surface p-5 sm:p-6">
               <div className="flex flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
                 <div>
                   <p className="font-mono text-xs font-semibold uppercase tracking-[0.15em] text-[var(--accent)]">
@@ -41,7 +41,7 @@ export function Experience({ data }: ExperienceProps) {
                 </time>
               </div>
 
-              <ul className="mt-6 grid gap-3 text-sm leading-6 text-[var(--text-muted)] lg:grid-cols-2 lg:gap-x-8">
+              <ul className="mt-4 grid gap-3 text-sm leading-6 text-[var(--text-muted)] lg:grid-cols-2 lg:gap-x-8">
                 {experience.activities.map((activity) => (
                   <li className="flex gap-3" key={activity}>
                     <span aria-hidden="true" className="activity-bullet" />
@@ -50,7 +50,7 @@ export function Experience({ data }: ExperienceProps) {
                 ))}
               </ul>
 
-              <ul className="mt-6 flex flex-wrap gap-2 border-t border-[var(--border)] pt-5">
+              <ul className="mt-4 flex flex-wrap gap-2 border-t border-[var(--border)] pt-4">
                 {experience.transferableSkills.map((skill) => (
                   <li className="tech-badge" key={skill}>
                     {skill}

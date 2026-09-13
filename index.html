@@ -9,18 +9,6 @@
     <meta property="og:type" content="__OG_TYPE__" />
     <meta property="og:title" content="__OG_TITLE__" />
     <meta property="og:description" content="__OG_DESCRIPTION__" />
-    <script>
-      (() => {
-        let theme = 'dark'
-
-        try {
-          const savedTheme = localStorage.getItem('nrm-theme')
-          if (savedTheme === 'light' || savedTheme === 'dark') theme = savedTheme
-        } catch {}
-
-        document.documentElement.dataset.theme = theme
-      })()
-    </script>
     <title>__SEO_TITLE__</title>
   </head>
   <body>

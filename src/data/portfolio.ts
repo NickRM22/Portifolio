@@ -5,8 +5,7 @@ export const portfolioData = {
     title: 'Nicolas R. Martins | Desenvolvimento de Software e Java',
     description:
       'Portfólio de Nicolas R. Martins, estudante de Análise e Desenvolvimento de Sistemas na FIAP com foco em Java e Desenvolvimento de Software.',
-    themeColorDark: '#0D1117',
-    themeColorLight: '#F8FAFC',
+    themeColor: '#0D1117',
     openGraph: {
       type: 'website',
       title: 'Nicolas R. Martins | Desenvolvimento de Software e Java',
@@ -38,19 +37,17 @@ export const portfolioData = {
   },
   hero: {
     eyebrow: 'Olá, eu sou',
-    titleLines: ['Nicolas R.', 'Martins.'],
-    titleAriaLabel: 'Nicolas R. Martins.',
+    titleLines: ['Nicolas', 'Martins'],
+    titleAriaLabel: 'Nicolas Martins',
     subtitle:
-      'Estudante de ADS com foco em Java e Desenvolvimento de Software.',
-    highlight: 'Buscando estágio em Desenvolvimento de Software.',
+      'Estudante de ADS e desenvolvedor fullstack.',
     primaryCta: { label: 'Ver projetos', href: '#projetos' },
     secondaryCta: { label: 'Entrar em contato', href: '#contato' },
     resumeCta: 'Baixar currículo',
     resumeAriaLabel: 'Baixar currículo de Nicolas R. Martins em PDF',
     codeLabel: 'foco_atual',
     codeValue: 'java + fundamentos',
-    visualAriaLabel:
-      'Composição abstrata com o monograma NRM, representando desenvolvimento de software',
+    visualAriaLabel: 'Foto de Nicolas R. Martins',
   },
   about: {
     eyebrow: '01 / Sobre',
@@ -58,33 +55,17 @@ export const portfolioData = {
     description:
       'Uma trajetória em formação, conectando estudo, prática e melhoria de processos.',
     paragraphs: [
-      'Sou estudante de Análise e Desenvolvimento de Sistemas na FIAP, atualmente no 2º semestre, com foco no ecossistema Java e nos fundamentos que sustentam um software bem construído.',
-      'Venho desenvolvendo conhecimentos em lógica de programação, orientação a objetos, estruturas de dados, SQL, desenvolvimento web e Linux. No trabalho, também tenho contato com dados, dashboards e automações de processos.',
-      'Busco transformar o aprendizado acadêmico em experiência prática, contribuindo com organização, curiosidade técnica e disposição para evoluir em equipe.',
+      'Gosto de entender como as coisas funcionam e transformar esse aprendizado em código. Nos meus projetos, exploro problemas do cotidiano para praticar a construção de soluções organizadas e claras.',
+      'Minha vivência profissional trouxe atenção aos detalhes e uma visão prática de como a tecnologia pode facilitar o trabalho das pessoas. Quero levar essa perspectiva para os próximos desafios de desenvolvimento.',
     ],
-    facts: [
-      { label: 'Formação', value: 'ADS • FIAP' },
-      { label: 'Momento acadêmico', value: '2º semestre em 2026' },
-      { label: 'Conclusão prevista', value: 'Dezembro de 2027' },
-      { label: 'Localização', value: 'São Paulo/SP' },
-    ],
-  },
-  careerGoal: {
-    eyebrow: '02 / Objetivo',
-    title: 'Próximo passo: aprender em projetos reais.',
-    description:
-      'Uma oportunidade para aplicar fundamentos, colaborar com profissionais experientes e crescer com responsabilidade.',
-    quote:
-      'Busco uma oportunidade de estágio em Desenvolvimento de Software na qual eu possa aplicar meus conhecimentos em Java, Desenvolvimento Web, SQL e Automação, participar de projetos reais e continuar evoluindo tecnicamente ao lado de profissionais experientes.',
-    supportLabel: 'O que levo para o time',
-    supportItems: [
-      'Fundamentos de desenvolvimento em evolução contínua',
-      'Organização e contato prático com dados',
-      'Comunicação com equipes multifuncionais',
-    ],
+    objectiveLabel: 'Próximo passo',
+    objective: 'Estágio em Desenvolvimento de Software',
+    objectiveDescription:
+      'Contribuir em projetos reais e evoluir com a orientação de profissionais experientes.',
+    locationLabel: 'Localização',
   },
   skills: {
-    eyebrow: '03 / Competências',
+    eyebrow: '02 / Competências',
     title: 'Tecnologias e fundamentos em desenvolvimento.',
     description:
       'Conhecimentos construídos em disciplinas, cursos, projetos próprios e rotina profissional.',
@@ -146,7 +127,7 @@ export const portfolioData = {
     ],
   },
   projects: {
-    eyebrow: '04 / Projetos',
+    eyebrow: '03 / Projetos',
     title: 'Aprendizado transformado em código.',
     description:
       'Projetos públicos que registram a evolução em Java, orientação a objetos e lógica de programação.',
@@ -154,6 +135,8 @@ export const portfolioData = {
       {
         number: '01',
         name: 'Firefly / DisasterNet',
+        image: 'images/projects/firefly.svg',
+        imageAlt: 'Ilustração de uma rota de resgate em uma região montanhosa',
         description:
           'Aplicação Java que modela uma operação de resgate em cenário de desastre natural. Reúne dados de missão, região, vítimas e equipe para calcular risco, pontuação e penalidades, com validações de entrada.',
         technologies: [
@@ -170,6 +153,8 @@ export const portfolioData = {
       {
         number: '02',
         name: 'Lista de Tarefas',
+        image: 'images/projects/tasks.svg',
+        imageAlt: 'Ilustração de uma lista com tarefas concluídas e pendentes',
         description:
           'Aplicação de console para criar, listar e concluir tarefas. O código separa exibição, gerenciamento e modelo de dados, usando HashMap para organizar os registros e validações de entrada.',
         technologies: [
@@ -187,6 +172,8 @@ export const portfolioData = {
       {
         number: '03',
         name: 'Montagem de PC — Simulação',
+        image: 'images/projects/pc.svg',
+        imageAlt: 'Ilustração de um computador com monitor e gabinete',
         description:
           'Projeto em Java que modela um computador e seus componentes por meio de classes. Aplica composição e encapsulamento para reunir e exibir especificações de processador, memória, fonte e armazenamento.',
         technologies: ['Java', 'Programação Orientada a Objetos'],
@@ -199,6 +186,8 @@ export const portfolioData = {
       {
         number: '04',
         name: 'Adega Tech',
+        image: 'images/projects/adega.svg',
+        imageAlt: 'Ilustração de um terminal Python com menus de tecnologia',
         description:
           'Aplicação interativa de console em Python que organiza informações e curiosidades sobre linguagens de programação, tecnologias, inteligência artificial e hardware em menus navegáveis.',
         technologies: ['Python', 'Lógica de Programação'],
@@ -211,7 +200,7 @@ export const portfolioData = {
     ],
   },
   experience: {
-    eyebrow: '05 / Experiência',
+    eyebrow: '04 / Experiência',
     title: 'Responsabilidade, dados e colaboração.',
     description:
       'Experiências que fortalecem organização, comunicação e visão de processos.',
@@ -250,34 +239,18 @@ export const portfolioData = {
           'Trabalho em equipe',
         ],
       },
-      {
-        company: 'You BPO Tech',
-        role: 'Consultor de Relacionamento',
-        period: 'Novembro/2025 – Janeiro/2026',
-        startDate: '2025-11',
-        endDate: '2026-01',
-        activities: [
-          'Atendimento a clientes e esclarecimento de dúvidas.',
-          'Prospecção ativa.',
-          'Apresentação e negociação de serviços financeiros e cartões de crédito.',
-        ],
-        transferableSkills: ['Comunicação', 'Negociação', 'Escuta', 'Proatividade'],
-      },
+
     ],
   },
   education: {
-    eyebrow: '06 / Formação',
+    eyebrow: '05 / Formação',
     title: 'Base acadêmica e aprendizado contínuo.',
     description:
       'Formação superior em andamento, complementada por cursos focados em tecnologia.',
-    degreeLabel: 'Curso',
     degree: 'Análise e Desenvolvimento de Sistemas',
-    institutionLabel: 'Instituição',
     institution: 'FIAP',
     statusLabel: 'Situação',
     status: '2º semestre em 2026',
-    completionLabel: 'Conclusão prevista',
-    completion: 'Dezembro de 2027',
     certificationsTitle: 'Certificações e cursos',
   },
   certifications: [
@@ -298,10 +271,10 @@ export const portfolioData = {
     },
   ],
   contact: {
-    eyebrow: '07 / Contato',
+    eyebrow: '06 / Contato',
     title: 'Vamos conversar sobre uma oportunidade?',
     description:
-      'Estou disponível para oportunidades de estágio em Desenvolvimento de Software. Você pode entrar em contato por e-mail ou acompanhar meus projetos e trajetória profissional.',
+      'Entre em contato por e-mail ou acompanhe meu trabalho nas redes abaixo.',
     methods: [
       {
         label: 'E-mail',
@@ -336,7 +309,7 @@ export const portfolioData = {
     copyError: 'Não foi possível copiar. Selecione o endereço acima.',
   },
   footer: {
-    note: 'Projetado e desenvolvido com atenção aos detalhes.',
+    note: 'Desenvolvimento de Software • Java',
     copyrightSymbol: '©',
     year: 2026,
     owner: 'Nicolas R. Martins.',
@@ -350,8 +323,6 @@ export const portfolioData = {
     openMenu: 'Abrir menu de navegação',
     closeMenu: 'Fechar menu de navegação',
     mobileNavigationId: 'navegacao-mobile',
-    activateLightTheme: 'Ativar tema claro',
-    activateDarkTheme: 'Ativar tema escuro',
     externalLinkHint: 'Abre em uma nova aba',
     currentPageLabel: 'Seção atual',
   },

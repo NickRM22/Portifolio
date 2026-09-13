@@ -1,16 +1,13 @@
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion'
 import { Menu, X } from 'lucide-react'
 import { useEffect, useMemo, useRef, useState } from 'react'
-import type { PortfolioData, Theme } from '../types'
-import { ThemeToggle } from './ThemeToggle'
+import type { PortfolioData } from '../types'
 
 interface HeaderProps {
   data: PortfolioData
-  theme: Theme
-  onToggleTheme: () => void
 }
 
-export function Header({ data, theme, onToggleTheme }: HeaderProps) {
+export function Header({ data }: HeaderProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('')
   const menuButtonRef = useRef<HTMLButtonElement>(null)
@@ -95,12 +92,6 @@ export function Header({ data, theme, onToggleTheme }: HeaderProps) {
         </nav>
 
         <div className="flex items-center gap-2">
-          <ThemeToggle
-            darkLabel={data.ui.activateDarkTheme}
-            lightLabel={data.ui.activateLightTheme}
-            onToggle={onToggleTheme}
-            theme={theme}
-          />
           <a
             className="button-secondary header-contact min-h-10 px-4 py-2 text-sm"
             href={data.navigation.contactCta.href}
@@ -134,7 +125,7 @@ export function Header({ data, theme, onToggleTheme }: HeaderProps) {
             exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -8 }}
             id={data.ui.mobileNavigationId}
             initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, y: -8 }}
-            transition={{ duration: shouldReduceMotion ? 0 : 0.18 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.24, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="container-shell flex flex-col gap-1 px-0">
               {allNavigationItems.map((item) => {

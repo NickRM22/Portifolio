@@ -19,33 +19,20 @@ export function Projects({ data }: ProjectsProps) {
     >
       <SectionTitle data={data.projects} id="projetos-title" />
 
-      <motion.div
-        className="grid gap-5 md:grid-cols-2"
-        initial="hidden"
-        variants={{
-          hidden: {},
-          visible: {
-            transition: { staggerChildren: shouldReduceMotion ? 0 : 0.1 },
-          },
-        }}
-        viewport={{ once: true, amount: 0.06 }}
-        whileInView="visible"
-      >
+      <div className="grid gap-5 md:grid-cols-2">
         {data.projects.items.map((project) => (
           <motion.div
             className="flex"
             key={project.name}
-            variants={{
-              hidden: shouldReduceMotion
-                ? { opacity: 1 }
-                : { opacity: 0, y: 22 },
-              visible: { opacity: 1, y: 0 },
-            }}
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.08 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.45, ease: [0.22, 1, 0.36, 1] }}
           >
             <ProjectCard project={project} />
           </motion.div>
         ))}
-      </motion.div>
+      </div>
     </MotionSection>
   )
 }

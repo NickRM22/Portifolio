@@ -8,18 +8,6 @@ interface EducationProps {
 }
 
 export function Education({ data }: EducationProps) {
-  const details = [
-    { label: data.education.degreeLabel, value: data.education.degree },
-    {
-      label: data.education.institutionLabel,
-      value: data.education.institution,
-    },
-    { label: data.education.statusLabel, value: data.education.status },
-    {
-      label: data.education.completionLabel,
-      value: data.education.completion,
-    },
-  ]
 
   return (
     <MotionSection
@@ -30,7 +18,7 @@ export function Education({ data }: EducationProps) {
       <SectionTitle data={data.education} id="formacao-title" />
 
       <div className="grid gap-6 lg:grid-cols-[0.85fr_1.15fr]">
-        <article className="card-surface overflow-hidden">
+        <article className="modern-card card-surface self-start overflow-hidden">
           <div className="flex items-center gap-4 border-b border-[var(--border)] p-6 sm:p-7">
             <span className="icon-tile">
               <GraduationCap aria-hidden="true" size={22} strokeWidth={1.8} />
@@ -44,20 +32,13 @@ export function Education({ data }: EducationProps) {
               </h3>
             </div>
           </div>
-          <dl className="divide-y divide-[var(--border)]">
-            {details.map((detail) => (
-              <div
-                className="grid gap-1 px-6 py-4 sm:grid-cols-[9rem_1fr] sm:px-7"
-                key={detail.label}
-              >
-                <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-[var(--text-subtle)]">
-                  {detail.label}
-                </dt>
-                <dd className="text-sm font-medium text-[var(--text-strong)] sm:text-right">
-                  {detail.value}
-                </dd>
-              </div>
-            ))}
+          <dl className="px-6 py-5 sm:px-7">
+            <dt className="text-xs font-semibold uppercase tracking-[0.1em] text-[var(--text-subtle)]">
+              {data.education.statusLabel}
+            </dt>
+            <dd className="mt-2 text-sm font-medium text-[var(--text-strong)]">
+              {data.education.status}
+            </dd>
           </dl>
         </article>
 
@@ -70,7 +51,7 @@ export function Education({ data }: EducationProps) {
           </div>
           <ul className="grid gap-3 sm:grid-cols-2">
             {data.certifications.map((certification) => (
-              <li className="certification-card" key={certification.name}>
+              <li className="modern-card certification-card" key={certification.name}>
                 <span aria-hidden="true" className="certification-mark" />
                 <div>
                   <p className="text-sm font-semibold leading-6 text-[var(--text-strong)]">

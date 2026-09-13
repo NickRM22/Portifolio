@@ -24,7 +24,7 @@ export default defineConfig({
         const replacements = {
           __SEO_TITLE__: portfolioData.seo.title,
           __SEO_DESCRIPTION__: portfolioData.seo.description,
-          __SEO_THEME_COLOR__: portfolioData.seo.themeColorDark,
+          __SEO_THEME_COLOR__: portfolioData.seo.themeColor,
           __OG_TYPE__: portfolioData.seo.openGraph.type,
           __OG_TITLE__: portfolioData.seo.openGraph.title,
           __OG_DESCRIPTION__: portfolioData.seo.openGraph.description,

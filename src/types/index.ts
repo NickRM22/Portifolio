@@ -1,5 +1,3 @@
-export type Theme = 'dark' | 'light'
-
 export type IconName =
   | 'code'
   | 'database'
@@ -32,11 +30,6 @@ export interface SectionHeadingData {
   description?: string
 }
 
-export interface QuickFact {
-  label: string
-  value: string
-}
-
 export interface SkillCategory {
   title: string
   description: string
@@ -45,6 +38,8 @@ export interface SkillCategory {
 }
 
 export interface Project {
+  image: string
+  imageAlt: string
   number: string
   name: string
   description: string
@@ -83,8 +78,7 @@ export interface PortfolioData {
   seo: {
     title: string
     description: string
-    themeColorDark: string
-    themeColorLight: string
+    themeColor: string
     openGraph: {
       type: string
       title: string
@@ -112,7 +106,6 @@ export interface PortfolioData {
     titleLines: readonly string[]
     titleAriaLabel: string
     subtitle: string
-    highlight: string
     primaryCta: NavigationItem
     secondaryCta: NavigationItem
     resumeCta: string
@@ -123,12 +116,10 @@ export interface PortfolioData {
   }
   about: SectionHeadingData & {
     paragraphs: readonly string[]
-    facts: readonly QuickFact[]
-  }
-  careerGoal: SectionHeadingData & {
-    quote: string
-    supportLabel: string
-    supportItems: readonly string[]
+    objectiveLabel: string
+    objective: string
+    objectiveDescription: string
+    locationLabel: string
   }
   skills: SectionHeadingData & {
     categories: readonly SkillCategory[]
@@ -140,14 +131,10 @@ export interface PortfolioData {
     items: readonly ExperienceItem[]
   }
   education: SectionHeadingData & {
-    degreeLabel: string
     degree: string
-    institutionLabel: string
     institution: string
     statusLabel: string
     status: string
-    completionLabel: string
-    completion: string
     certificationsTitle: string
   }
   certifications: readonly Certification[]
@@ -175,8 +162,6 @@ export interface PortfolioData {
     openMenu: string
     closeMenu: string
     mobileNavigationId: string
-    activateLightTheme: string
-    activateDarkTheme: string
     externalLinkHint: string
     currentPageLabel: string
   }

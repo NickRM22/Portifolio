@@ -40,7 +40,6 @@ npm run preview
 src/
 ├── components/       # Seções e componentes de interface
 ├── data/portfolio.ts # Fonte única de conteúdo e textos acessíveis
-├── hooks/useTheme.ts # Tema persistente claro/escuro
 ├── types/index.ts    # Tipos da camada de dados
 ├── App.tsx           # Composição da página
 ├── main.tsx          # Entrada da aplicação
@@ -66,5 +65,5 @@ Sem a propriedade opcional `personal.resumeUrl`, o botão de download permanece 
 ## Observações
 
 - Não há backend ou formulário de envio simulado; o contato usa links reais e `mailto`.
-- O tema escuro é o padrão e a escolha do usuário é persistida no navegador.
+- O site utiliza exclusivamente o tema escuro.
 - Animações respeitam `prefers-reduced-motion`.

@@ -69,14 +69,6 @@ export function Contact({ data }: ContactProps) {
           <SectionTitle data={data.contact} id="contato-title" />
 
           <div className="flex flex-col gap-3 sm:flex-row sm:flex-wrap">
-            <a
-              aria-label={data.contact.emailAriaLabel}
-              className="button-primary"
-              href={`mailto:${data.personal.email}`}
-            >
-              <Icon name="mail" size={18} />
-              {data.contact.emailCta}
-            </a>
             <button
               aria-label={data.contact.copyAriaLabel}
               className="button-secondary"
@@ -103,12 +95,12 @@ export function Contact({ data }: ContactProps) {
           </p>
         </div>
 
-        <ul className="relative z-10 mt-10 grid gap-3 lg:grid-cols-3">
+        <ul className="relative z-10 mt-5 grid gap-3 lg:grid-cols-3">
           {data.contact.methods.map((method) => (
             <li key={method.label}>
               <a
                 aria-label={method.ariaLabel}
-                className="contact-method"
+                className="modern-card contact-method"
                 href={method.url}
                 rel={method.external ? 'noopener noreferrer' : undefined}
                 target={method.external ? '_blank' : undefined}

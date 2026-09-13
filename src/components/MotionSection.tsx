@@ -1,3 +1,5 @@
+import { PixelMascot } from './PixelMascot'
+import { TechAmbient } from './TechAmbient'
 import { motion, useReducedMotion } from 'framer-motion'
 import type { ReactNode } from 'react'
 
@@ -17,16 +19,22 @@ export function MotionSection({
   const shouldReduceMotion = useReducedMotion()
 
   return (
-    <motion.section
+    <section
       aria-labelledby={labelledBy}
-      className={`section-block ${className ?? ''}`}
+      className={`section-block ${['sobre', 'competencias', 'projetos', 'formacao'].includes(id) ? 'section-with-mascot' : ''} ${className ?? ''}`}
       id={id}
-      initial={shouldReduceMotion ? false : { opacity: 0, y: 28 }}
-      transition={{ duration: 0.55, ease: [0.2, 0.75, 0.25, 1] }}
-      viewport={{ once: true, amount: 0.12 }}
-      whileInView={shouldReduceMotion ? undefined : { opacity: 1, y: 0 }}
     >
-      <div className="container-shell">{children}</div>
-    </motion.section>
+      <TechAmbient section={id} />
+      <PixelMascot section={id} />
+      <motion.div
+        className="container-shell section-content"
+        initial={shouldReduceMotion ? false : { opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true, amount: 'some', margin: '0px 0px -24px 0px' }}
+        transition={{ duration: shouldReduceMotion ? 0 : 0.4, ease: 'easeOut' }}
+      >
+        {children}
+      </motion.div>
+    </section>
   )
 }

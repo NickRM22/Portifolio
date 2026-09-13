@@ -15,28 +15,15 @@ export function Skills({ data }: SkillsProps) {
     <MotionSection id="competencias" labelledBy="competencias-title">
       <SectionTitle data={data.skills} id="competencias-title" />
 
-      <motion.div
-        className="grid gap-4 md:grid-cols-2"
-        initial="hidden"
-        variants={{
-          hidden: {},
-          visible: {
-            transition: { staggerChildren: shouldReduceMotion ? 0 : 0.08 },
-          },
-        }}
-        viewport={{ once: true, amount: 0.08 }}
-        whileInView="visible"
-      >
+      <div className="grid gap-4 md:grid-cols-2">
         {data.skills.categories.map((category) => (
           <motion.article
-            className="card-surface p-6 sm:p-7"
+            className="modern-card card-surface p-5 sm:p-6"
             key={category.title}
-            variants={{
-              hidden: shouldReduceMotion
-                ? { opacity: 1 }
-                : { opacity: 0, y: 18 },
-              visible: { opacity: 1, y: 0 },
-            }}
+            initial={shouldReduceMotion ? false : { opacity: 0, y: 12 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.08 }}
+            transition={{ duration: shouldReduceMotion ? 0 : 0.45, ease: [0.22, 1, 0.36, 1] }}
           >
             <div className="flex items-start gap-4">
               <span className="icon-tile">
@@ -52,7 +39,7 @@ export function Skills({ data }: SkillsProps) {
               </div>
             </div>
 
-            <ul className="mt-6 flex flex-wrap gap-2">
+            <ul className="mt-4 flex flex-wrap gap-2">
               {category.items.map((skill) => (
                 <li className="tech-badge" key={skill}>
                   {skill}
@@ -61,7 +48,7 @@ export function Skills({ data }: SkillsProps) {
             </ul>
           </motion.article>
         ))}
-      </motion.div>
+      </div>
     </MotionSection>
   )
 }

@@ -1,0 +1,69 @@
+.section-with-mascot { position: relative; overflow: clip; }
+
+.section-with-mascot { padding-bottom: 6rem; }
+.mascot-scene {
+  --sprite-size: 76px;
+  position: absolute;
+  z-index: 2;
+  bottom: 8px;
+  right: max(1rem, calc((100% - 72rem) / 2));
+  width: 130px;
+  height: var(--sprite-size);
+  pointer-events: none;
+  user-select: none;
+  mix-blend-mode: lighten;
+}
+.mascot-traveler {
+  position: absolute;
+  bottom: 0;
+  left: 20px;
+  width: var(--sprite-size);
+  height: var(--sprite-size);
+}
+.mascot-sprite {
+  width: 100%;
+  height: 100%;
+  background-size: 400% 400%;
+  background-repeat: no-repeat;
+  image-rendering: pixelated;
+  transform-origin: center bottom;
+}
+.mascot-sprite-walk { background-position-y: 0%; }
+.mascot-sprite-rope { background-position-y: 33.333333%; }
+.mascot-sprite-game { background-position-y: 66.666667%; }
+.mascot-sprite-code { background-position-y: 100%; }
+.mascot-scene-rope { left: max(1rem, calc((100% - 72rem) / 2)); right: auto; }
+.mascot-scene-walk {
+  left: max(1rem, calc((100% - 72rem) / 2));
+  right: auto;
+  width: min(360px, calc(100% - 2rem));
+}
+.mascot-scene-walk .mascot-traveler {
+  left: 0;
+
+}
+.mascot-wall {
+  position: absolute;
+  bottom: 0;
+  width: 8px;
+  height: 54px;
+  border: 1px solid #344660;
+  background: repeating-linear-gradient(0deg, #182333 0 12px, #344660 12px 13px);
+}
+.mascot-wall-one { left: 28%; }
+.mascot-wall-two { left: 72%; z-index: 1; }
+.mascot-screen-glow {
+  position: absolute;
+  left: 63px;
+  bottom: 14px;
+  width: 30px;
+  height: 24px;
+  background: radial-gradient(ellipse, rgba(96, 165, 250, 0.16), transparent 75%);
+}
+@media (max-width: 639px) {
+  .mascot-scene { --sprite-size: 64px; }
+  .section-with-mascot { padding-bottom: 5.25rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .mascot-sprite, .mascot-traveler { animation: none !important; }
+}
