@@ -1,6 +1,6 @@
 import { useRef } from 'react'
 import { motion, useInView, useReducedMotion } from 'framer-motion'
-import { ArrowDownRight, ArrowRight, Download } from 'lucide-react'
+import { ArrowDownRight, ArrowRight, CodeXml, Download } from 'lucide-react'
 import type { PortfolioData } from '../types'
 import portrait from '../assets/nicolas-martins.jpeg'
 
@@ -26,7 +26,16 @@ export function Hero({ data }: HeroProps) {
         transition={{ duration: 0.6, ease: [0.2, 0.75, 0.25, 1] }}
       >
         <p className="font-mono text-sm font-medium uppercase tracking-[0.16em] text-[var(--accent)]">
-          {data.hero.eyebrow}
+          <span className="sr-only">{data.hero.eyebrow}</span>
+          <span aria-hidden="true" className="hero-typewriter">
+            <span className="hero-typewriter-space">{data.hero.eyebrow}</span>
+            <span
+              className="hero-typewriter-text"
+              style={{ animationTimingFunction: `steps(${Array.from(data.hero.eyebrow).length}, end)` }}
+            >
+              {data.hero.eyebrow}
+            </span>
+          </span>
         </p>
         <h1
           aria-label={data.hero.titleAriaLabel}
@@ -95,10 +104,9 @@ export function Hero({ data }: HeroProps) {
             src={portrait}
             width={1792}
           />
-          <div className="hero-code-pill">
-            <span>{data.hero.codeLabel}</span>
-            <strong>{data.hero.codeValue}</strong>
-          </div>
+          <span aria-hidden="true" className="hero-photo-badge">
+            <CodeXml size={24} strokeWidth={1.8} />
+          </span>
         </motion.div>
         <div aria-hidden="true" className="hero-node hero-node-one" />
         <div aria-hidden="true" className="hero-node hero-node-two" />

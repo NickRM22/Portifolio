@@ -1,4 +1,3 @@
-import { PixelMascot } from './PixelMascot'
 import { TechAmbient } from './TechAmbient'
 import { motion, useReducedMotion } from 'framer-motion'
 import type { ReactNode } from 'react'
@@ -21,11 +20,10 @@ export function MotionSection({
   return (
     <section
       aria-labelledby={labelledBy}
-      className={`section-block ${['sobre', 'competencias', 'projetos', 'formacao'].includes(id) ? 'section-with-mascot' : ''} ${className ?? ''}`}
+      className={`section-block ${className ?? ''}`}
       id={id}
     >
       <TechAmbient section={id} />
-      <PixelMascot section={id} />
       <motion.div
         className="container-shell section-content"
         initial={shouldReduceMotion ? false : { opacity: 0 }}

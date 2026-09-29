@@ -64,8 +64,11 @@ export interface ExperienceItem {
 }
 
 export interface Certification {
+  category: 'Java' | 'Python' | 'Lógica de programação' | 'Fundamentos de TI'
+  featured?: boolean
   name: string
   issuer: string
+  file?: string
 }
 
 export interface ContactMethod extends LinkData {
@@ -110,8 +113,6 @@ export interface PortfolioData {
     secondaryCta: NavigationItem
     resumeCta: string
     resumeAriaLabel: string
-    codeLabel: string
-    codeValue: string
     visualAriaLabel: string
   }
   about: SectionHeadingData & {

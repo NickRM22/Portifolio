@@ -67,7 +67,13 @@ export function Header({ data }: HeaderProps) {
           href="#top"
           onClick={closeMenu}
         >
-          <span aria-hidden="true">{data.personal.initials}</span>
+          <img
+            alt=""
+            className="brand-logo"
+            src={`${import.meta.env.BASE_URL}images/nm-logo.png`}
+            width={72}
+            height={44}
+          />
         </a>
 
         <nav
